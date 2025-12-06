@@ -1,0 +1,181 @@
+/* BARRA DE ACCESIBILIDAD */
+.accessibility-bar {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.accessibility-container {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+}
+
+.accessibility-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.accessibility-btn:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+.accessibility-btn i {
+    font-size: 1.4rem;
+}
+
+/* Modo Oscuro */
+.dark-mode {
+    --background-color: #1a1a1a;
+    --dark-color: #ecf0f1;
+    background-color: #1a1a1a;
+    color: #ecf0f1;
+}
+
+.dark-mode .container-hero {
+    background-color: #2d2d2d;
+}
+
+.dark-mode .card-feature,
+.dark-mode .card-product,
+.dark-mode .container-options span {
+    background-color: #2d2d2d;
+    color: #ecf0f1;
+}
+
+.dark-mode .container-options span:not(.active) {
+    color: #bdc3c7;
+}
+
+.dark-mode .container-options span:not(.active):hover {
+    color: #ecf0f1;
+}
+
+.dark-mode .feature-content p,
+.dark-mode .content-card-product .price span {
+    color: #bdc3c7;
+}
+
+/* Alto Contraste */
+.high-contrast {
+    --primary-color: #ff6b00;
+    --background-color: #000000;
+    --dark-color: #ffffff;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.high-contrast .container-hero {
+    background-color: #000000;
+}
+
+.high-contrast .card-feature,
+.high-contrast .card-product {
+    background-color: #000000;
+    border: 2px solid #ff6b00;
+    color: #ffffff;
+}
+
+.high-contrast .accessibility-bar {
+    background: #000000;
+    border-bottom: 3px solid #ff6b00;
+}
+
+.high-contrast .menu a:hover {
+    color: #ff6b00;
+}
+
+/* Texto aumentado */
+.large-text {
+    font-size: 70%;
+}
+
+.large-text body {
+    font-size: 1.8rem;
+}
+
+.larger-text {
+    font-size: 80%;
+}
+
+.larger-text body {
+    font-size: 2.2rem;
+}
+
+/* Ajustes de posición para barra fija */
+.container-navbar {
+    position: fixed;
+    top: 4.5rem;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.container-hero,
+.main-content {
+    margin-top: 10rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .accessibility-container {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .accessibility-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    .accessibility-btn span {
+        display: none;
+    }
+    
+    .accessibility-btn i {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 468px) {
+    .accessibility-bar {
+        padding: 0.5rem 0;
+    }
+    
+    .accessibility-container {
+        gap: 0.3rem;
+    }
+    
+    .accessibility-btn {
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+        justify-content: center;
+    }
+}

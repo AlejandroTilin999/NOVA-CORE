@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     <link rel="icon" type="image/png" href="Logosolo.png">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 
 <body>
@@ -49,9 +49,11 @@
 
     <!-- Firebase -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword } 
-            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+            from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc } 
+            from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBSpS6l1NLfeG0mGPADlBWT7cM4zr8eJqo",
@@ -64,6 +66,7 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const db = getFirestore(app);
 
         document.getElementById("btnLogin").addEventListener("click", async () => {
             const correo = document.getElementById("correo").value.trim();
@@ -75,15 +78,30 @@
             }
 
             try {
-                await signInWithEmailAndPassword(auth, correo, contraseña);
+                const userCredential = await signInWithEmailAndPassword(auth, correo, contraseña);
+                const user = userCredential.user;
+
+                // 🔹 Verificar si el usuario existe en Firestore
+                const userDoc = await getDoc(doc(db, "usuarios", user.uid));
+                if (!userDoc.exists()) {
+                    alert("Esta cuenta ya no existe.");
+                    await auth.signOut(); // cerrar sesión
+                    return;
+                }
+
+                if (!user.emailVerified) {
+                    alert("Debes verificar tu correo antes de iniciar sesión.");
+                    return;
+                }
+
                 alert("Inicio de sesión exitoso.");
                 window.location.href = "home.html";
-
 
             } catch (error) {
                 alert("Error: " + error.message);
             }
         });
     </script>
+
 </body>
 </html>
