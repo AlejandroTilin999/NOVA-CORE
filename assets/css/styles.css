@@ -250,11 +250,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @keyframes cambioFondo {
-    0% { background-image: linear-gradient(100deg, #000, #00000020), url('../img/fondo.jpeg'); }
-    25% { background-image: linear-gradient(100deg, #000, #00000020), url('../img/yo.jpg'); }
-    50% { background-image: linear-gradient(100deg, #000, #00000020), url('../img/fondo5.png'); }
-    75% { background-image: linear-gradient(100deg, #000, #00000020), url('../img/xbox-series-x-digital.jpg'); }
-    100% { background-image: linear-gradient(100deg, #000, #00000020), url('../img/Fondo4.jpg'); }
+    0% { background-image: linear-gradient(100deg, #000, #00000020), url('../../img/fondo.jpeg'); }
+    25% { background-image: linear-gradient(100deg, #000, #00000020), url('../../img/yo.jpg'); }
+    50% { background-image: linear-gradient(100deg, #000, #00000020), url('../../img/fondo5.png'); }
+    75% { background-image: linear-gradient(100deg, #000, #00000020), url('../../img/xbox-series-x-digital.jpg'); }
+    100% { background-image: linear-gradient(100deg, #000, #00000020), url('../../img/Fondo4.jpg'); }
 }
 
 .content-banner {

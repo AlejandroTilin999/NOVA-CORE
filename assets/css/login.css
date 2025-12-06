@@ -31,7 +31,7 @@ body{
 
 /* Imagen del formulario */
 .imagen-formulario{
-    background-image: url('/img/xbox-series-x-digital.jpg');
+    background-image: url('https://i.ibb.co/gb9KCptc/xbox-series-x-digital.jpg');
     background-position: center;
     background-size: cover;
     height: 220px;
